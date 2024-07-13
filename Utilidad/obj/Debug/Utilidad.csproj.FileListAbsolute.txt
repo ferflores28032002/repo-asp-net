@@ -1,0 +1,6 @@
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\bin\Debug\Utilidad.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\bin\Debug\Utilidad.pdb
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\obj\Debug\Utilidad.csproj.AssemblyReference.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\obj\Debug\Utilidad.csproj.CoreCompileInputs.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\obj\Debug\Utilidad.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\Utilidad\obj\Debug\Utilidad.pdb

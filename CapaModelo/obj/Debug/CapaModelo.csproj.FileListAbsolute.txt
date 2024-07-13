@@ -1,0 +1,12 @@
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\bin\Debug\CapaModelo.dll
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\bin\Debug\CapaModelo.pdb
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csproj.CoreCompileInputs.cache
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\obj\Debug\CapaModelo.dll
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\obj\Debug\CapaModelo.pdb
+D:\WorkSpaceAD\YOUTUBE\022_FUNCIONALIDAD SISTEMA DE VENTA MVC\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csprojAssemblyReference.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\bin\Debug\CapaModelo.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\bin\Debug\CapaModelo.pdb
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\obj\Debug\CapaModelo.csproj.AssemblyReference.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\obj\Debug\CapaModelo.csproj.CoreCompileInputs.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\obj\Debug\CapaModelo.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaModelo\obj\Debug\CapaModelo.pdb

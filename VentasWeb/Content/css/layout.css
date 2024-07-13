@@ -1,0 +1,61 @@
+/* Importar la fuente Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  color: white;
+}
+
+.navbar .nav-item a {
+  color: black;
+  display: flex;
+  gap: 0.7rem;
+  justify-content: start;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 40px; /* Ajusta el tamaño según sea necesario */
+  margin-right: 10px;
+}
+
+.navbar .nav-item {
+  padding: 10px 20px;
+}
+
+.navbar .logout {
+  margin-left: auto;
+}
+
+/* Estilos para el dropdown */
+.dropdown-menu {
+  background-color: white;
+  color: black;
+  border: none; /* Elimina el borde si es necesario */
+  box-shadow: none; /* Elimina la sombra */
+  padding: 10px;
+}
+
+.dropdown-menu a {
+  color: black; /* Color del texto negro */
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+}
+
+
+

@@ -1,0 +1,213 @@
+USE master
+GO
+
+IF NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE NAME = 'DBVENTAS_WEB')
+    CREATE DATABASE DBVENTAS_WEB
+GO 
+
+USE DBVENTAS_WEB
+GO
+
+--(1) TABLA ROL
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'ROL')
+    CREATE TABLE ROL(
+        IdRol INT PRIMARY KEY IDENTITY(1,1),
+        Descripcion VARCHAR(60),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(2) TABLA TIENDA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'TIENDA')
+    CREATE TABLE TIENDA(
+        IdTienda INT PRIMARY KEY IDENTITY(1,1),
+        Nombre VARCHAR(60),
+        RUC VARCHAR(60),
+        Direccion VARCHAR(100),
+        Telefono VARCHAR(50),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(3) TABLA MENU
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'MENU')
+    CREATE TABLE MENU(
+        IdMenu INT PRIMARY KEY IDENTITY(1,1),
+        Nombre VARCHAR(60),
+        Icono VARCHAR(60),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(4) TABLA SUBMENU
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'SUBMENU')
+    CREATE TABLE SUBMENU(
+        IdSubMenu INT PRIMARY KEY IDENTITY(1,1),
+        IdMenu INT REFERENCES MENU(IdMenu),
+        Nombre VARCHAR(60),
+        Controlador VARCHAR(60),
+        Vista VARCHAR(50),
+        Icono VARCHAR(50),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(5) TABLA USUARIO
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'USUARIO')
+    CREATE TABLE USUARIO(
+        IdUsuario INT PRIMARY KEY IDENTITY(1,1),
+        Nombres VARCHAR(60),
+        Apellidos VARCHAR(60),
+        Correo VARCHAR(60),
+        Clave VARCHAR(100),
+        IdTienda INT REFERENCES TIENDA(IdTienda),
+        IdRol INT REFERENCES ROL(IdRol),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(6) TABLA PERMISOS
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'PERMISOS')
+    CREATE TABLE PERMISOS(
+        IdPermisos INT PRIMARY KEY IDENTITY(1,1),
+        IdRol INT REFERENCES ROL(IdRol),
+        IdSubMenu INT REFERENCES SUBMENU(IdSubMenu),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(7) TABLA PROVEEDOR
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'PROVEEDOR')
+    CREATE TABLE PROVEEDOR(
+        IdProveedor INT PRIMARY KEY IDENTITY(1,1),
+        RUC VARCHAR(50),
+        RazonSocial VARCHAR(100),
+        Telefono VARCHAR(50),
+        Correo VARCHAR(50),
+        Direccion VARCHAR(50),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(8) TABLA CATEGORIA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'CATEGORIA')
+    CREATE TABLE CATEGORIA(
+        IdCategoria INT PRIMARY KEY IDENTITY(1,1),
+        Descripcion VARCHAR(100),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(8) TABLA PRODUCTO
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'PRODUCTO')
+    CREATE TABLE PRODUCTO(
+        IdProducto INT PRIMARY KEY IDENTITY(1,1),
+        Codigo VARCHAR(100),
+        ValorCodigo INT,
+        Nombre VARCHAR(100),
+        Descripcion VARCHAR(100),
+        IdCategoria INT REFERENCES CATEGORIA(IdCategoria),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(8) TABLA PRODUCTO_TIENDA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'PRODUCTO_TIENDA')
+    CREATE TABLE PRODUCTO_TIENDA(
+        IdProductoTienda INT PRIMARY KEY IDENTITY(1,1),
+        IdProducto INT REFERENCES PRODUCTO(IdProducto),
+        IdTienda INT REFERENCES TIENDA(IdTienda),
+        PrecioUnidadCompra DECIMAL(18,2) DEFAULT 0,
+        PrecioUnidadVenta DECIMAL(18,2) DEFAULT 0,
+        Stock BIGINT DEFAULT 0,
+        Activo BIT DEFAULT 1,
+        Iniciado BIT DEFAULT 0,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(9) TABLA COMPRA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'COMPRA')
+    CREATE TABLE COMPRA(
+        IdCompra INT PRIMARY KEY IDENTITY(1,1),
+        IdUsuario INT REFERENCES USUARIO(IdUsuario),
+        IdProveedor INT REFERENCES PROVEEDOR(IdProveedor),
+        IdTienda INT REFERENCES TIENDA(IdTienda),
+        TotalCosto DECIMAL(18,2) DEFAULT 0,
+        TipoComprobante VARCHAR(50) DEFAULT 'Boleta',
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+--(10) TABLA DETALLE_COMPRA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'DETALLE_COMPRA')
+    CREATE TABLE DETALLE_COMPRA(
+        IdDetalleCompra INT PRIMARY KEY IDENTITY(1,1),
+        IdCompra INT REFERENCES COMPRA(IdCompra),
+        IdProducto INT REFERENCES PRODUCTO(IdProducto),
+        Cantidad INT,
+        PrecioUnitarioCompra DECIMAL(18,2),
+        PrecioUnitarioVenta DECIMAL(18,2),
+        TotalCosto DECIMAL(18,2),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+-- (10) TABLA CLIENTE
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'CLIENTE')
+    CREATE TABLE CLIENTE(
+        IdCliente INT PRIMARY KEY IDENTITY(1,1),
+        TipoDocumento VARCHAR(50),
+        NumeroDocumento VARCHAR(50),
+        Nombre VARCHAR(50),
+        Direccion VARCHAR(50),
+        Telefono VARCHAR(40),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+-- (11) TABLA VENTA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'VENTA')
+    CREATE TABLE VENTA(
+        IdVenta INT PRIMARY KEY IDENTITY(1,1),
+        Codigo VARCHAR(100),
+        ValorCodigo INT,
+        IdTienda INT REFERENCES TIENDA(IdTienda),
+        IdUsuario INT REFERENCES USUARIO(IdUsuario),
+        IdCliente INT REFERENCES CLIENTE(IdCliente),
+        TipoDocumento VARCHAR(50),
+        CantidadProducto INT,
+        CantidadTotal INT,
+        TotalCosto DECIMAL(18,2),
+        ImporteRecibido DECIMAL(18,2),
+        ImporteCambio DECIMAL(18,2),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
+
+-- (12) TABLA DETALLE_VENTA
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'DETALLE_VENTA')
+    CREATE TABLE DETALLE_VENTA(
+        IdDetalleVenta INT PRIMARY KEY IDENTITY(1,1),
+        IdVenta INT REFERENCES VENTA(IdVenta),
+        IdProducto INT REFERENCES PRODUCTO(IdProducto),
+        Cantidad INT,
+        PrecioUnidad DECIMAL(18,2),
+        ImporteTotal DECIMAL(18,2),
+        Activo BIT DEFAULT 1,
+        FechaRegistro DATETIME DEFAULT GETDATE()
+    )
+GO
