@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\GATEWAY\\Desktop\\022_SistemaVentaAspMVC\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F29ACB8C-A2B2-4C29-87C1-203E73A13701}|VentasWeb\\VentasWeb.csproj|c:\\users\\gateway\\desktop\\022_sistemaventaaspmvc\\ventasweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F29ACB8C-A2B2-4C29-87C1-203E73A13701}|VentasWeb\\VentasWeb.csproj|solutionrelative:ventasweb\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\GATEWAY\\Desktop\\022_SistemaVentaAspMVC\\VentasWeb\\Web.config",
+              "RelativeDocumentMoniker": "VentasWeb\\Web.config",
+              "ToolTip": "C:\\Users\\GATEWAY\\Desktop\\022_SistemaVentaAspMVC\\VentasWeb\\Web.config",
+              "RelativeToolTip": "VentasWeb\\Web.config",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-07-13T01:40:02.419Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

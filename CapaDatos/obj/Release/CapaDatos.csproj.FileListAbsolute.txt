@@ -1,0 +1,9 @@
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\bin\Release\CapaDatos.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\bin\Release\CapaDatos.pdb
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\bin\Release\CapaModelo.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\bin\Release\CapaModelo.pdb
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\obj\Release\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\obj\Release\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\obj\Release\CapaDatos.csproj.Up2Date
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\obj\Release\CapaDatos.dll
+C:\Users\GATEWAY\Desktop\022_SistemaVentaAspMVC\CapaDatos\obj\Release\CapaDatos.pdb

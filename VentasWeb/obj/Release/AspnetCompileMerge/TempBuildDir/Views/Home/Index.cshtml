@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            height: 230px;
+            /* Ajusta la altura de las tarjetas según tus necesidades */
+        }
+
+        .icono-icono {
+            font-size: 2.5rem;
+            /* Ajusta el tamaño del ícono según tus necesidades */
+            margin-bottom: 1rem;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .login-info {
+
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dashboard {
+            margin-top: 20px;
+        }
+
+        .jumbotron {
+
+            color: white;
+        }
+
+        .jumbotron h1,
+        .jumbotron p {
+            color: white;
+        }
+
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+        }
+
+        .card-body i {
+            font-size: 4.5rem;
+            /* Ajusta el tamaño del ícono según tus necesidades */
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .btn-elegant {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-elegant:hover {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+        }
+
+        .card-content {
+            text-align: center;
+        }
+
+        .card-text {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container ">
+
+
+        <div class="dashboard">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <i class="fas fa-box icono-icono"></i>
+                                <h5 class="card-title">Productos</h5>
+                                <p class="card-text">Nuestros productos son de la más alta calidad, garantizando
+                                    satisfacción y durabilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-secondary mb-3">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <i class="fas fa-users icono-icono"></i>
+                                <h5 class="card-title">Proveedores</h5>
+                                <p class="card-text">Colaboramos con proveedores confiables y reconocidos a nivel
+                                    mundial.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <i class="fas fa-user-shield icono-icono"></i>
+                                <h5 class="card-title">Roles</h5>
+                                <p class="card-text">Definimos roles claros para asegurar un flujo de trabajo eficiente
+                                    y organizado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <i class="fas fa-key icono-icono"></i>
+                                <h5 class="card-title">Permisos</h5>
+                                <p class="card-text">Gestionamos permisos detallados para proteger la información y los
+                                    recursos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron mt-4 bg-primary">
+            <h1 class="display-4">Bienvenido</h1>
+            <p class="lead">@ViewBag.NombreUsuario</p>
+            <p class="lead">ROL: @ViewBag.RolUsuario</p>
+
+        </div>
+    </div>
+</body>
+
+</html>
